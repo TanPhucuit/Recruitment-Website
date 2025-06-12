@@ -1,0 +1,172 @@
+/* CSS Override Fix - Add this to your main CSS file or create a new one */
+/* Force full width layout - HIGH PRIORITY STYLES */
+
+/* Reset any existing layout constraints */
+* {
+  box-sizing: border-box !important;
+}
+
+/* Force RecruiterDashboard to use full screen */
+.recruiter-layout {
+  display: flex !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #f8fafc !important;
+}
+
+/* Main content must take remaining space */
+.recruiter-layout .main-content {
+  flex: 1 !important;
+  min-width: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 24px !important;
+  background-color: #f8fafc !important;
+}
+
+/* Force all child containers to use full width */
+.main-content > * {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Table containers must be full width */
+.table-wrapper,
+.job-list,
+.candidate-list,
+.test-list {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Tables must use full available width */
+.candidate-table,
+.job-table,
+.test-table {
+  width: 100% !important;
+  min-width: 800px !important;
+  table-layout: fixed !important;
+}
+
+/* Fix any existing container constraints */
+.container,
+.content-wrapper,
+.interface {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Override Bootstrap or other framework constraints */
+.container-fluid,
+.row,
+.col,
+.col-12,
+.col-md-12,
+.col-lg-12 {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Specific fixes for your current layout */
+.candidate-list {
+  height: 100% !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  background: #f6f6fa !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Table wrapper specific fixes */
+.table-wrapper {
+  background: #fff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+  overflow: hidden !important;
+  width: 100% !important;
+}
+
+/* Remove any sidebar interference with main content */
+.sidebar + .main-content {
+  width: calc(100vw - 280px) !important;
+  margin-left: 0 !important;
+}
+
+/* When sidebar is collapsed */
+.sidebar.collapsed + .main-content {
+  width: calc(100vw - 60px) !important;
+}
+
+/* Force white background for content cards */
+.main-content > div {
+  background: white !important;
+  border-radius: 12px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+  padding: 24px !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1024px) {
+  .recruiter-layout {
+    flex-direction: column !important;
+  }
+  
+  .sidebar {
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  .main-content {
+    width: 100% !important;
+    padding: 16px !important;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 12px !important;
+  }
+  
+  .candidate-table,
+  .job-table,
+  .test-table {
+    min-width: 600px !important;
+  }
+  
+  .table-wrapper {
+    overflow-x: auto !important;
+  }
+}
+
+/* Debug styles - Remove after fixing */
+.debug-red {
+  border: 2px solid red !important;
+}
+
+.debug-blue {
+  border: 2px solid blue !important;
+}
+
+.debug-green {
+  border: 2px solid green !important;
+}
+
+/* Use these classes temporarily to see element boundaries:
+   Add className="debug-red" to main-content
+   Add className="debug-blue" to table-wrapper
+   Add className="debug-green" to table elements
+*/ 

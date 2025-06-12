@@ -1,0 +1,13 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  background-color: #f6f6fa;
+}
+.container, .container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+} 

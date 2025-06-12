@@ -1,0 +1,127 @@
+.interface {
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3374ed;
+}
+
+.jobs-list {
+  display: grid;
+  gap: 20px;
+}
+
+.job-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.job-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.job-company {
+  color: #666;
+  margin: 5px 0;
+}
+
+.job-details {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.job-detail {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #666;
+  font-size: 14px;
+}
+
+.job-description {
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.job-requirements {
+  margin-bottom: 15px;
+}
+
+.requirements-title {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.requirements-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #666;
+}
+
+.apply-button {
+  padding: 8px 16px;
+  background-color: #3374ed;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.apply-button:hover {
+  background-color: #2861d1;
+}
+
+.chat-icon-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.chat-icon {
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.chat-icon:hover {
+  transform: scale(1.1);
+} 

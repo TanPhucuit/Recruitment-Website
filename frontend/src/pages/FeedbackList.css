@@ -1,0 +1,71 @@
+.feedback-list {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 32px 32px 16px 32px;
+  margin: 0 auto;
+  max-width: 900px;
+}
+.breadcrumb {
+  color: #666;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+.list-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #222;
+}
+.feedback-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.feedback-item {
+  display: flex;
+  align-items: center;
+  background: #f8f9fb;
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-size: 17px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+  position: relative;
+}
+.feedback-item.accepted .feedback-status {
+  color: #219653;
+  font-weight: 600;
+}
+.feedback-item.rejected .feedback-status {
+  color: #e53935;
+  font-weight: 600;
+}
+.icon {
+  margin-right: 12px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+}
+.icon-accept {
+  color: #219653;
+  font-size: 22px;
+  font-weight: bold;
+}
+.icon-reject {
+  color: #e53935;
+  font-size: 22px;
+  font-weight: bold;
+}
+.feedback-info {
+  margin-left: 12px;
+  color: #444;
+}
+.close-x {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color: #bbb;
+  cursor: pointer;
+} 

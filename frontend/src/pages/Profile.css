@@ -1,0 +1,174 @@
+.interface {
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.action-button {
+  padding: 10px 20px;
+  background-color: #3374ed;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.action-button:hover {
+  background-color: #2861d1;
+}
+
+.profile-form-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.profile-info {
+  display: grid;
+  gap: 15px;
+}
+
+.form-group {
+  display: grid;
+  gap: 5px;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #666;
+}
+
+.form-value {
+  color: #333;
+  line-height: 1.5;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.button:hover {
+  background-color: #c82333;
+}
+
+.profile-form {
+  display: grid;
+  gap: 15px;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+  min-height: 40px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.exitButton {
+  padding: 10px 20px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.exitButton:hover {
+  background-color: #5a6268;
+}
+
+.cv-section {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cv-container {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-cv-message {
+  text-align: center;
+  color: #666;
+}
+
+.upload-area {
+  margin-top: 20px;
+}
+
+.upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  border: 2px dashed #3374ed;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-icon {
+  color: #3374ed;
+}
+
+.file-input {
+  display: none;
+}
+
+.chat-icon-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.chat-icon {
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.chat-icon:hover {
+  transform: scale(1.1);
+} 
