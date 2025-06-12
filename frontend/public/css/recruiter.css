@@ -1,0 +1,770 @@
+/* Sidebar styles */
+.sidebar {
+    width: 300px;
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    padding-top: 32px;
+}
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar-item {
+    padding: 16px 24px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    border-left: 4px solid transparent;
+}
+.sidebar-item:hover,
+.sidebar-item.active {
+    background: linear-gradient(to right, #4a1698, #7527c8, #a12fe8);
+    color: #fff;
+    border-left: 4px solid #fff;
+}
+.sidebar-desc {
+    font-size: 12px;
+    color: #c3c9dc;
+    margin-top: 4px;
+    margin-left: 2px;
+    font-weight: 400;
+    font-style: italic;
+}
+.sidebar-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-style: bold;
+    letter-spacing: 1px;
+    color: #fff;
+    padding: 0 24px 12px 24px;
+    margin-bottom: 8px;
+    margin-top: 0;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+
+/* Breadcrumb */
+.breadcrumb {
+    font-size: 15px;
+    color: #000000;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+/*Quản lý hồ sơ ứng viên */
+/* Menubar styles */
+.menubar {
+    display: flex;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0;
+    list-style: none;
+    background: #18181b;
+    overflow: hidden;
+}
+.menubar-item {
+    padding: 12px 28px;
+    color: #fff;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+    border: none;
+}
+.menubar-item.active,
+.menubar-item:hover {
+    background: linear-gradient(to right, #4a1698, #7527c8, #a12fe8);
+    color: #fff;
+}
+/* Section content */
+.section-content {
+    background: #fff;
+    border-radius: 8px;
+    padding: 28px 24px;
+    margin-bottom: 32px;
+    margin-top: 0;
+}
+.section-content.hidden {
+    display: none;
+}
+
+/* Table */
+.candidate-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.candidate-table th,
+.candidate-table td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+.candidate-table th {
+    background: #f3f4f6;
+    font-weight: 600;
+    color: #3730a3;
+}
+.candidate-table td {
+    font-size: 15px;
+    color: #22223b;
+}
+.candidate-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Action buttons */
+.action-btn, .search-btn, .filter-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 16px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-right: 6px;
+  
+}
+.action-btn:hover, .search-btn:hover, .filter-btn:hover {
+    background: linear-gradient(to right, #4a1698, #7527c8, #a12fe8);
+}
+
+/* Search form */
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+.search-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #c7d2fe;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+/* Filter form */
+.filter-form {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    margin-bottom: 18px;
+}
+.filter-form label {
+    font-size: 15px;
+    color: #22223b;
+}
+.filter-form select {
+    margin-left: 6px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #c7d2fe;
+    font-size: 15px;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background: #fff
+}
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    padding: 0;;
+    background: transparent;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.top-header {
+    background: #18181b;
+    color: #fff;
+    padding: 0;
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 72px;
+}
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.site-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.username {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+    margin-left: 0;
+    padding: 0;
+}
+.candidate-search-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+.candidate-table-wrapper {
+    max-height: 260px;
+    overflow-y: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background: #fff;
+    margin-bottom: 16px;
+}
+
+.candidate-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.candidate-table th, .candidate-table td {
+    padding: 10px 8px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 15px;
+}
+
+.candidate-table th {
+    background: #f7f7f7;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.candidate-table tr:hover {
+    background: #f1f8ff;
+}
+
+.candidate-action-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+.candidate-action-buttons .action-btn:disabled {
+    background: #ccc;
+    color: #fff;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+/*profile*/
+.profile-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fafcff;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.profile-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #1976d2;
+}
+.profile-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.profile-card li {
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+#back-to-list-btn {
+    margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .dashboard-layout {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        min-height: unset;
+        padding-top: 0;
+    }
+    .main-content {
+        padding: 0;
+    }
+}
+/*Quản lý quy trình tuyển dụng*/
+/* Quản lý quy trình tuyển dụng */
+#interview-menubar {
+    display: flex;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0;
+    list-style: none;
+    background: #18181b;
+    overflow: hidden;
+    gap: 0;
+    border-radius: 0;
+    padding: 0;
+}
+#interview-menubar .menubar-item {
+    padding: 12px 28px;
+    color: #fff;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+    border: none;
+    border-radius: 0;
+}
+#interview-menubar .menubar-item.active,
+#interview-menubar .menubar-item:hover {
+    background: linear-gradient(to right, #4a1698, #7527c8, #a12fe8);
+    color: #fff;
+}
+#interview-breadcrumb {
+    margin-bottom: 18px;
+    font-size: 15px;
+    color: #000000;
+}
+.interview-section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.hidden {
+    display: none;
+}
+#interview-menubar.hidden,#interview-breadcrumb.hidden {
+    display: none;
+}
+/* quản lý tin tuyển dụng */
+/* Button cho quản lý tin tuyển dụng */
+#job-menubar {
+    display: flex;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0;
+    list-style: none;
+    background: #18181b;
+    overflow: hidden;
+    gap: 0;
+    border-radius: 0;
+    padding: 0;
+}
+#job-menubar .menubar-item {
+    padding: 12px 28px;
+    color: #fff;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+    border: none;
+    border-radius: 0;
+}
+#job-menubar .menubar-item.active,
+#job-menubar .menubar-item:hover {
+    background: linear-gradient(to right, #4a1698, #7527c8, #a12fe8);
+    color: #fff;
+}
+
+/* Breadcrumb quản lý tin tuyển dụng */
+#job-breadcrumb {
+    margin-bottom: 18px;
+    font-size: 15px;
+    color: #000000;
+}
+#job-menubar.hidden, #job-breadcrumb.hidden {
+    display: none;
+}
+.job-action-buttons .action-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 18px;
+    font-weight: 500;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.job-action-buttons .action-btn:disabled {
+    background: #ccc;
+    color: #fff;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+.job-action-buttons .action-btn:hover:not(:disabled) {
+    background: linear-gradient(to right, #4a1698, #7527c8, #a12fe8);
+    color: #fff;
+}
+#save-job-btn, #cancel-edit-job-btn, #back-to-job-list-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 18px;
+    font-weight: 500;
+    margin: 8px 8px 0 0;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+#save-job-btn:hover, #cancel-edit-job-btn:hover, #back-to-job-list-btn:hover {
+    background: linear-gradient(to right, #4a1698, #7527c8, #a12fe8);
+    color: #fff;
+}
+.job-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    margin-bottom: 18px;
+}
+.job-table th,
+.job-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 15px;
+}
+.job-table th {
+    background: #f5f6fa;
+    color: #22223b;
+    font-weight: 600;
+}
+.job-table tr:last-child td {
+    border-bottom: none;
+}
+.job-table input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+}
+.job-search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 8px;
+}
+#job-search-input {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 8px 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#job-search-btn {
+    padding: 8px 18px;
+    font-size: 15px;
+    border-radius: 4px;
+    border: none;
+    background: #000000;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+#job-search-btn:hover {
+    background: linear-gradient(to right, #4a1698, #7527c8, #a12fe8);
+}
+#edit-job-form label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 500;
+    color: #22223b;
+}
+#edit-job-form input[type="text"],
+#edit-job-form input[type="date"],
+#edit-job-form textarea,
+#edit-job-form select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    margin-top: 4px;
+    box-sizing: border-box;
+    background: #f8f8fa;
+    transition: border 0.2s;
+}
+#edit-job-form input[type="text"]:focus,
+#edit-job-form input[type="date"]:focus,
+#edit-job-form textarea:focus,
+#edit-job-form select:focus {
+    border: 1.5px solid #4a1698;
+    outline: none;
+    background: #fff;
+}
+#edit-job-form textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+#section-edit-job h2 {
+    margin-bottom: 18px;
+    color: #4a1698;
+}
+#save-job-btn, #cancel-edit-job-btn {
+    margin-top: 8px;
+}
+/* Form đăng tin tuyển dụng */
+#section-job-feedback h2 {
+    margin-bottom: 18px;
+    color: #4a1698;
+}
+#create-job-form label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 500;
+    color: #22223b;
+}
+#create-job-form input[type="text"],
+#create-job-form input[type="date"],
+#create-job-form textarea,
+#create-job-form select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    margin-top: 4px;
+    box-sizing: border-box;
+    background: #f8f8fa;
+    transition: border 0.2s;
+}
+#create-job-form input[type="text"]:focus,
+#create-job-form input[type="date"]:focus,
+#create-job-form textarea:focus,
+#create-job-form select:focus {
+    border: 1.5px solid #4a1698;
+    outline: none;
+    background: #fff;
+}
+#create-job-form textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+#submit-job-btn, #cancel-create-job-btn {
+    margin-top: 8px;
+    margin-right: 8px;
+}
+
+/* Pop-up đăng tin tuyển dụng */
+#job-popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 999;
+    background: rgba(0,0,0,0.25);
+    align-items: center;
+    justify-content: center;
+}
+#job-popup > div {
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: 8px;
+    max-width: 320px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+}
+#job-popup .action-btn {
+    margin-top: 12px;
+    width: 100px;
+}
+/* Pop-up dùng chung */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 9999;
+    background: rgba(0,0,0,0.25);
+    align-items: center;
+    justify-content: center;
+}
+.popup-overlay.active {
+    display: flex;
+}
+.popup-content {
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: 8px;
+    max-width: 320px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+}
+.popup-content .action-btn {
+    margin-top: 12px;
+    width: 100px;
+}
+/*Quản lý quy trình tuyển dụng*/
+#section-invite-interview h2 {
+    color: #4a1698;
+}
+#invite-form label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 500;
+    color: #22223b;
+}
+#invite-form input[type="text"],
+#invite-form input[type="date"],
+#invite-form input[type="time"],
+#invite-form textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    margin-top: 4px;
+    box-sizing: border-box;
+    background: #f8f8fa;
+    transition: border 0.2s;
+}
+#invite-form input[type="text"]:focus,
+#invite-form input[type="date"]:focus,
+#invite-form input[type="time"]:focus,
+#invite-form textarea:focus {
+    border: 1.5px solid #4a1698;
+    outline: none;
+    background: #fff;
+}
+#invite-form textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+#send-invite-btn, #cancel-invite-btn {
+    margin-top: 8px;
+    margin-right: 8px;
+}
+.invite-row {
+    display: flex;
+    gap: 18px;
+}
+.interview-section {
+    margin-top: 0;
+    padding-top: 0;
+}
+#interview-breadcrumb {
+    margin-bottom: 10px; 
+    padding-left: 1rem;
+}
+@media (max-width: 600px) {
+    .invite-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+/* xem phản hồi */
+#feedback-list {
+    margin-top: 18px;
+}
+.feedback-item {
+    display: flex;
+    align-items: center;
+    background: #f8f8fa;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    position: relative;
+    border-left: 4px solid #bbb;
+}
+.feedback-item.accept {
+    border-left-color: #4caf50;
+}
+.feedback-item.reject {
+    border-left-color: #e53935;
+}
+.feedback-type {
+    font-weight: 600;
+    margin-right: 18px;
+    min-width: 140px;
+    color: #222;
+}
+.feedback-item.accept .feedback-type {
+    color: #388e3c;
+}
+.feedback-item.reject .feedback-type {
+    color: #e53935;
+}
+.feedback-detail {
+    flex: 1;
+    color: #444;
+}
+.feedback-remove {
+    cursor: pointer;
+    color: #888;
+    font-size: 18px;
+    margin-left: 18px;
+    transition: color 0.2s;
+}
+.feedback-remove:hover {
+    color: #e53935;
+}
+/* feedback form */
+#review-form label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 500;
+    color: #22223b;
+}
+#review-form input[type="text"],
+#review-form textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    margin-top: 4px;
+    box-sizing: border-box;
+    background: #f8f8fa;
+    transition: border 0.2s;
+}
+#review-form input[type="text"]:focus,
+#review-form textarea:focus {
+    border: 1.5px solid #4a1698;
+    outline: none;
+    background: #fff;
+}
+#review-form textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+#save-review-btn {
+    margin-top: 8px;
+}
