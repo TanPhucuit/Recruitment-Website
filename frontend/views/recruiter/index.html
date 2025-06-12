@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TalentHub - Trang quản lý nhà tuyển dụng</title>
+    <link rel="stylesheet" href="styles2.css">
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- <header class="top-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ba80fb97d8a2c4018cc59665928602843683e588?placeholderIfAbsent=true&apiKey=06db04f2e4ba49b791f503a1926a9190" alt="TalentHub Logo" class="logo-image" />
+                <h1 class="site-title">Website quản lý tuyển dụng TalentHub</h1>
+            </div>
+            <div class="user-section">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7ad477928bbf0f9302f0392711f772848fc3225b?placeholderIfAbsent=true&apiKey=06db04f2e4ba49b791f503a1926a9190" alt="User Avatar" class="user-avatar" />
+                <span class="username">Tên người dùng</span>
+            </div>
+        </div>
+    </header> -->
+    <div class="dashboard-layout">
+        <nav class="sidebar">
+            <div class="sidebar-title">Chức năng</div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item active" data-section="candidate-management">
+                    <span>Quản lý hồ sơ ứng viên</span>
+                     <div class="sidebar-desc">Xem danh sách ứng viên, tìm kiếm hồ sơ ứng viên, lọc hồ sơ ứng viên</div>
+                </li>
+                 <li class="sidebar-item" data-section="interview-management">
+                    <span>Quản lý quy trình tuyển dụng</span>
+                    <div class="sidebar-desc">Tạo bài test, gửi lời mời phỏng vấn, đánh giá ứng viên</div>
+                </li>
+                <li class="sidebar-item" data-section="job-management">
+                    <span>Quản lý tin tuyển dụng</span>
+                    <div class="sidebar-desc">Xem danh sách tin tuyển dụng, đăng và xóa tin tuyển dụng</div>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main-content"> 
+            <!-- Menubar Quản lý hồ sơ ứng viên  -->
+         <ul class="menubar" id="candidate-menubar">
+                <li class="menubar-item active" data-tab="list">Danh sách ứng viên</li>
+                <li class="menubar-item" data-tab="filter">Lọc hồ sơ</li>
+                 <li class="menubar-item" data-tab="search">Thu thập hồ sơ từ LinkedIn</li>
+            </ul>
+            <nav class="breadcrumb" id="breadcrumb">
+                <span>Quản lý hồ sơ ứng viên > Danh sách ứng viên</span>
+            </nav>
+           <!--Menu bar Quản lý quy trình tuyển dụng -->
+          <ul class="menubar hidden" id="interview-menubar">
+                <li class="menubar-item active" data-tab="invite">Gửi lời mời phỏng vấn</li>
+                <li class="menubar-item" data-tab="feedback">Xem phản hồi</li>
+                <li class="menubar-item" data-tab="test">Tạo bài test</li>
+                <li class="menubar-item" data-tab="review">Đánh giá sau phỏng vấn</li>
+            </ul>
+            <nav class="breadcrumb hidden" id="interview-breadcrumb">
+                <span>Quản lý quy trình tuyển dụng > Gửi lời mời phỏng vấn</span>
+            </nav>
+            <!--Menu bar Quản lý tin tuyển dụng -->
+            <ul class="menubar hidden" id="job-menubar">
+                <li class="menubar-item active" data-tab="jlist">Danh sách tin tuyển dụng</li>
+                <li class="menubar-item" data-tab="create">Đăng tin tuyển dụng</li>
+            </ul>
+            <nav class="breadcrumb hidden" id="job-breadcrumb">
+                <span>Quản lý tin tuyển dụng > Danh sách tin tuyển dụng</span>
+            </nav>
+            <!-- Section: Danh sách ứng viên -->
+           <section class="section-content" id="section-list">
+                <h2>Danh sách ứng viên</h2>
+                    <div class="candidate-search-bar">
+                    <input type="text" id="candidate-search-input" class="search-input" placeholder="Tìm kiếm theo tên, email hoặc số điện thoại...">
+                    <button id="candidate-search-btn" class="search-btn">Tìm kiếm</button>
+                </div>
+                <div class="candidate-table-wrapper">
+                    <table class="candidate-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="select-all-candidates"></th>
+                                <th>STT</th>
+                                <th>Họ và tên</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                                <th>Trạng thái hồ sơ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="candidate-list">
+                            <tr>
+                                <td><input type="checkbox" class="candidate-checkbox"></td>
+                                <td>1</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>0901234567</td>
+                                <td>vana@gmail.com</td>
+                                <td>Chưa duyệt</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="candidate-checkbox"></td>
+                                <td>2</td>
+                                <td>Trần Thị B</td>
+                                <td>0912345678</td>
+                                <td>thib@gmail.com</td>
+                                <td>Đã gửi lời mời phỏng vấn</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="candidate-checkbox"></td>
+                                <td>3</td>
+                                <td>Lê Văn C</td>
+                                <td>0987654321</td>
+                                <td>levanc@gmail.com</td>
+                                <td>Đã gửi bài test</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="candidate-action-buttons">
+                    <button id="view-profile-btn" class="action-btn" disabled>Xem hồ sơ</button>
+                    <button id="delete-btn" class="action-btn" disabled>Xóa hồ sơ</button>
+                     <button id="invite-btn" class="action-btn" disabled>Gửi lời mời phỏng vấn</button>
+                </div>
+            </section>
+            <section class="section-content hidden" id="section-view-profile">
+                <h2>Hồ sơ ứng viên</h2>
+                <div id="profile-list">
+                    <!-- Hồ sơ ứng viên sẽ được render ở đây -->
+               </div>
+                <button id="back-to-list-btn" class="action-btn">Quay lại danh sách</button>
+            </section>
+           <section class="section-content hidden" id="section-search">
+                <h2>Thu thập hồ sơ từ LinkedIn</h2>
+                <div style="margin-top:20px;font-size:16px;color:#888;">Chức năng đang phát triển...</div>
+            </section>
+           <section class="section-content hidden" id="section-filter">
+                <h2>Lọc hồ sơ</h2>
+                <div style="margin-top:20px;font-size:16px;color:#888;">Chức năng đang phát triển...</div>
+            </section>
+        
+            <!--Section: Quản lý quy trình tuyển dụng -->
+             <section class="section-content hidden" id="section-interview-management">
+                <section class="section-content interview-section hidden" id="interview-invite">
+                    <h2>Gửi lời mời phỏng vấn</h2>
+                    <form id="invite-form">
+                        <label>Công ty:<input type="text" id="invite-company" required></label><br>
+                        <label>Ứng viên:<input type="text" id="invite-candidate" required></label><br>
+                        <label>Vị trí tuyển dụng:<input type="text" id="invite-position" required></label><br>
+                        <div class="invite-row">
+                            <label>Ngày phỏng vấn:<input type="date" id="invite-date" required></label>
+                            <label>Giờ:<input type="time" id="invite-time" required></label>
+                        </div>
+                        <label>Nội dung:<textarea id="invite-content" rows="4" required></textarea></label><br>
+                        <button type="button" id="send-invite-btn" class="action-btn">Gửi lời mời</button>
+                        <button type="button" id="cancel-invite-btn" class="action-btn">Hủy</button>
+                    </form>
+                </section>
+                <section class="section-content interview-section hidden" id="interview-feedback">
+                    <h2>Xem phản hồi</h2>
+                     <div id="feedback-list"></div>
+                </section>
+                <section class="section-content interview-section hidden" id="interview-test">
+                    <h2>Tạo bài test</h2>
+                    <div style="margin-top:20px;font-size:16px;color:#888;">Chức năng đang phát triển...</div>
+                </section>
+                <section class="section-content interview-section hidden" id="interview-review">
+                    <h2>Đánh giá sau phỏng vấn</h2>
+                    <form id="review-form">
+                        <label>Tên người phỏng vấn:<input type="text" id="review-interviewer" required></label><br>
+                        <label>Tên ứng viên:<input type="text" id="review-candidate" required></label><br>
+                        <label>Nội dung đánh giá:<textarea id="review-content" rows="4" required></textarea></label><br>
+                        <button type="button" id="save-review-btn" class="action-btn">Lưu</button>
+                    </form>
+                </section>
+            </section>
+            <!-- Section: Danh sách tin tuyển dụng -->
+           <section class="section-content" id="job-list-section">
+                <h2>Danh sách tin tuyển dụng</h2>
+                    <div class="job-search-bar">
+                    <input type="text" id="job-search-input" class="search-input" placeholder="Tìm kiếm theo khu vực, vị trí tuyển hoặc hình thức làm việc...">
+                    <button id="job-search-btn" class="search-btn">Tìm kiếm</button>
+                </div>
+                <div class="job-table-wrapper">
+                    <table class="job-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="select-all-job"></th>
+                                <th>STT</th>
+                                <th>Tên chi nhánh</th>
+                                <th>Khu vực</th>
+                                <th>Vị trí tuyển dụng</th>
+                                <th>Hình thức làm việc</th>
+                                <th>Ngày đăng</th>
+                                <th>Hạn nộp hồ sơ</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody id="job-list">
+                            <!--Dữ liệu sẽ được render bằng JavaScript-->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="job-action-buttons">
+                    <button id="view-job-btn" class="action-btn" disabled>Xem tin</button>
+                    <button id="delete-job-btn" class="action-btn" disabled>Xóa tin</button>
+                     <button id="update-job-btn" class="action-btn" disabled>Cập nhật tin</button>
+                </div>
+            </section>
+           <section class="section-content hidden" id="section-view-job">
+                <h2>Nội dung tin tuyển dụng</h2>
+                <div id="job-view-list"></div>
+                <button id="back-to-job-list-btn" class="action-btn">Quay lại danh sách</button>
+            </section>
+            <section class="section-content hidden" id="section-edit-job">
+                <h2>Cập nhật tin tuyển dụng</h2>
+                <form id="edit-job-form"></form>
+                <button id="save-job-btn" class="action-btn">Lưu</button>
+                <button id="cancel-edit-job-btn" class="action-btn">Hủy</button>
+            </section>
+            <section class="section-content hidden" id="section-job-feedback">
+                <h2>Đăng tin tuyển dụng</h2>
+                <form id="create-job-form">
+                    <label>Tên công ty/chi nhánh:<input type="text" id="create-branch" required></label><br>
+                    <label>Khu vực:<input type="text" id="create-area" required></label><br>
+                    <label>Vị trí tuyển dụng:<input type="text" id="create-position" required></label><br>
+                    <label>Mức lương:<input type="text" id="create-salary" required></label><br>
+                    <label>Loại hình việc làm:<input type="text" id="create-type" required></label><br>
+                    <label>Yêu cầu:<textarea id="create-requirement" required></textarea></label><br>
+                    <label>Quyền lợi:<textarea id="create-benefit" required></textarea></label><br>
+                    <label>Ngày đăng tin:<input type="date" id="create-posted" required></label><br>
+                    <label>Hạn chót nộp hồ sơ:<input type="date" id="create-deadline" required></label><br>
+                    <label>Trạng thái:
+                        <select id="create-status">
+                            <option value="Đang tuyển">Đang tuyển</option>
+                            <option value="Đã đóng">Đã đóng</option>
+                        </select>
+                    </label><br>
+                    <button type="button" id="submit-job-btn" class="action-btn">Đăng tin</button>
+                    <button type="button" id="cancel-create-job-btn" class="action-btn">Hủy</button>
+                </form>
+           </section>
+           </section>
+        <!-- Pop-up thông báo -->
+            <div id="job-popup" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:999;background:rgba(0,0,0,0.25);align-items:center;justify-content:center;">
+                <div style="background:#fff;padding:32px 24px;border-radius:8px;max-width:320px;margin:auto;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,0.15);">
+                    <div style="font-size:18px;font-weight:600;margin-bottom:18px;">Tin tuyển dụng đang chờ duyệt</div>
+                    <button id="popup-ok-btn" class="action-btn" style="width:100px;">OK</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="global-popup" class="popup-overlay">
+        <div class="popup-content">
+            <div id="global-popup-message" style="font-size:17px;font-weight:500;margin-bottom:18px;"></div>
+            <button id="global-popup-ok-btn" class="action-btn" style="width:100px;">OK</button>
+        </div>
+    </div>
+    <script>
+    // Sidebar chuyển section
+    document.querySelectorAll('.sidebar-item').forEach(item => {
+        item.addEventListener('click', function() {
+            document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+            this.classList.add('active');
+            // Ẩn tất cả section
+            document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('hidden'));
+            document.querySelectorAll('.interview-section').forEach(sec => sec.classList.add('hidden'));
+            // Ẩn tất cả menubar và breadcrumb
+            document.querySelectorAll('.menubar').forEach(mb => mb.classList.add('hidden'));
+            document.querySelectorAll('.breadcrumb').forEach(bc => bc.classList.add('hidden'));
+            // Hiện section, menubar, breadcrumb tương ứng
+            const section = this.getAttribute('data-section');
+            if(section === 'candidate-management') {
+                document.getElementById('section-list').classList.remove('hidden');
+                document.getElementById('candidate-menubar').classList.remove('hidden');
+                document.getElementById('breadcrumb').classList.remove('hidden');
+            } else if(section === 'interview-management') {
+                document.getElementById('section-interview-management').classList.remove('hidden');
+                document.getElementById('interview-menubar').classList.remove('hidden');
+                document.getElementById('interview-breadcrumb').classList.remove('hidden');
+                // Hiện tab mặc định
+                document.querySelectorAll('.interview-section').forEach(sec => sec.classList.add('hidden'));
+                document.getElementById('interview-invite').classList.remove('hidden');
+                document.querySelectorAll('#interview-menubar .menubar-item').forEach(i => i.classList.remove('active'));
+                document.querySelector('#interview-menubar .menubar-item[data-tab="invite"]').classList.add('active');
+            } else if(section === 'job-management') {
+                document.getElementById('job-list-section').classList.remove('hidden');
+                document.getElementById('job-menubar').classList.remove('hidden');
+                document.getElementById('job-breadcrumb').classList.remove('hidden');
+                document.getElementById('job-breadcrumb').innerHTML = '<span>Quản lý tin tuyển dụng > Danh sách tin tuyển dụng</span>';
+            }
+        });
+    });
+   
+
+    // Menubar chuyển tab nhỏ cho quản lý hồ sơ ứng viên
+    document.querySelectorAll('.menubar-item').forEach(item => {
+        item.addEventListener('click', function() {
+            document.querySelectorAll('.menubar-item').forEach(i => i.classList.remove('active'));
+            this.classList.add('active');
+            document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('hidden'));
+            const tab = this.getAttribute('data-tab');
+            document.getElementById('section-' + tab).classList.remove('hidden');
+            // Breadcrumb
+            let text = '';
+            if(tab === 'list') text = 'Quản lý hồ sơ ứng viên > Danh sách ứng viên';
+            if(tab === 'search') text = 'Quản lý hồ sơ ứng viên > Thu thập hồ sơ từ LinkedIn';
+            if(tab === 'filter') text = 'Quản lý hồ sơ ứng viên > Lọc hồ sơ';
+            document.getElementById('breadcrumb').innerHTML = '<span>' + text + '</span>';
+        });
+    });
+    // Menubar chuyển tab nhỏ cho Quản lý quy trình tuyển dụng
+   document.querySelectorAll('#interview-menubar .menubar-item').forEach(item => {
+    item.addEventListener('click', function() {
+        // Luôn hiện cha section-interview-management
+        document.getElementById('section-interview-management').classList.remove('hidden');
+        document.querySelectorAll('#interview-menubar .menubar-item').forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+        document.querySelectorAll('.interview-section').forEach(sec => sec.classList.add('hidden'));
+        const tab = this.getAttribute('data-tab');
+        document.getElementById('interview-' + tab).classList.remove('hidden');
+        // Breadcrumb
+        let text = '';
+        if(tab === 'invite') text = 'Quản lý quy trình tuyển dụng > Gửi lời mời phỏng vấn';
+        if(tab === 'feedback') text = 'Quản lý quy trình tuyển dụng > Xem phản hồi';
+        if(tab === 'test') text = 'Quản lý quy trình tuyển dụng > Tạo bài test';
+        if(tab === 'review') text = 'Quản lý quy trình tuyển dụng > Đánh giá sau phỏng vấn';
+        document.getElementById('interview-breadcrumb').innerHTML = '<span>' + text + '</span>';
+        // Render feedback khi vào tab feedback
+        if(tab === 'feedback') renderFeedbackList();
+    });
+});
+        // Menubar chuyển tab nhỏ cho Quản lý tin tuyển dụng
+    document.querySelectorAll('#job-menubar .menubar-item').forEach(item => {
+        item.addEventListener('click', function() {
+            document.querySelectorAll('#interview-menubar .menubar-item').forEach(i => i.classList.remove('active'));
+            this.classList.add('active');
+            // Ẩn tất cả section con của quy trình tuyển dụng
+            document.querySelectorAll('.interview-section').forEach(sec => sec.classList.add('hidden'));
+            // Hiện section con tương ứng
+            const tab = this.getAttribute('data-tab');
+            document.getElementById('interview-' + tab).classList.remove('hidden');
+            // Breadcrumb
+            let text = '';
+            if(tab === 'invite') text = 'Quản lý quy trình tuyển dụng > Gửi lời mời phỏng vấn';
+            if(tab === 'feedback') text = 'Quản lý quy trình tuyển dụng > Xem phản hồi';
+            if(tab === 'test') text = 'Quản lý quy trình tuyển dụng > Tạo bài test';
+            if(tab === 'review') text = 'Quản lý quy trình tuyển dụng > Đánh giá sau phỏng vấn';
+            document.getElementById('interview-breadcrumb').innerHTML = '<span>' + text + '</span>';
+        });
+    });
+    // Xem danh sách ứng viên: tìm, xem, xóa, gửi lời mời
+            const candidateRows = [
+                { name: "Nguyễn Văn A", phone: "0901234567", email: "vana@gmail.com", status: "Chưa duyệt" },
+                { name: "Trần Thị B", phone: "0912345678", email: "thib@gmail.com", status: "Đã gửi lời mời phỏng vấn" },
+                { name: "Lê Văn C", phone: "0987654321", email: "levanc@gmail.com", status: "Đã gửi bài test" }
+            ];
+
+            function renderCandidateTable(filter = "") {
+                const tbody = document.getElementById('candidate-list');
+                let html = "";
+                let idx = 1;
+                candidateRows.forEach((c, i) => {
+                    const searchStr = (c.name + c.phone + c.email + c.status).toLowerCase();
+                    if (!filter || searchStr.includes(filter)) {
+                        html += `<tr>
+                            <td><input type="checkbox" class="candidate-checkbox"></td>
+                            <td>${idx++}</td>
+                            <td>${c.name}</td>
+                            <td>${c.phone}</td>
+                            <td>${c.email}</td>
+                            <td>${c.status}</td>
+                        </tr>`;
+                    }
+                });
+                tbody.innerHTML = html;
+                updateActionButtons();
+            }
+
+            function updateActionButtons() {
+                const checkboxes = document.querySelectorAll('.candidate-checkbox');
+                const checked = Array.from(checkboxes).some(cb => cb.checked);
+                document.getElementById('view-profile-btn').disabled = !checked;
+                document.getElementById('invite-btn').disabled = !checked;
+                document.getElementById('delete-btn').disabled = !checked;
+            }
+
+            document.getElementById('candidate-search-btn').onclick = function() {
+                const value = document.getElementById('candidate-search-input').value.trim().toLowerCase();
+                renderCandidateTable(value);
+            };
+
+            document.getElementById('candidate-search-input').oninput = function(e) {
+                if (!e.target.value) renderCandidateTable();
+            };
+
+            document.addEventListener('change', function(e) {
+                if (e.target.classList.contains('candidate-checkbox')) {
+                    updateActionButtons();
+                }
+                if (e.target.id === 'select-all-candidates') {
+                    document.querySelectorAll('.candidate-checkbox').forEach(cb => cb.checked = e.target.checked);
+                    updateActionButtons();
+                }
+            });
+
+            document.getElementById('view-profile-btn').onclick = function() {
+                // Lấy các ứng viên được chọn
+                const checkboxes = document.querySelectorAll('.candidate-checkbox');
+                const selectedIndexes = [];
+                checkboxes.forEach((cb, idx) => {
+                    if (cb.checked) selectedIndexes.push(idx);
+                });
+
+                // Dữ liệu demo chi tiết ứng viên
+                const demoProfiles = [
+                    {
+                        name: "Nguyễn Văn A",
+                        dob: "01/01/1995",
+                        phone: "0901234567",
+                        email: "vana@gmail.com",
+                        address: "123 Lê Lợi, Hà Nội",
+                        education: "Đại học Bách Khoa Hà Nội",
+                        certificate: "IELTS 7.0",
+                        experience: "2 năm tại FPT Software",
+                        cv: "cv-nguyenvana.pdf"
+                    },
+                    {
+                        name: "Trần Thị B",
+                        dob: "15/03/1997",
+                        phone: "0912345678",
+                        email: "thib@gmail.com",
+                        address: "456 Nguyễn Trãi, TP.HCM",
+                        education: "Đại học Kinh tế TP.HCM",
+                        certificate: "TOEIC 800",
+                        experience: "1 năm tại Shopee",
+                        cv: "cv-tranthib.pdf"
+                    },
+                    {
+                        name: "Lê Văn C",
+                        dob: "20/07/1994",
+                        phone: "0987654321",
+                        email: "levanc@gmail.com",
+                        address: "789 Trần Hưng Đạo, Đà Nẵng",
+                        education: "Đại học Đà Nẵng",
+                        certificate: "MOS Excel",
+                        experience: "3 năm tại Viettel",
+                        cv: "cv-levanc.pdf"
+                    }
+                ];
+
+                // Render hồ sơ các ứng viên được chọn
+                let html = "";
+                selectedIndexes.forEach(i => {
+                    const p = demoProfiles[i];
+                    html += `
+                    <div class="profile-card">
+                        <h3>${p.name}</h3>
+                        <ul>
+                            <li><b>Ngày sinh:</b> ${p.dob}</li>
+                            <li><b>Số điện thoại:</b> ${p.phone}</li>
+                            <li><b>Email:</b> ${p.email}</li>
+                            <li><b>Địa chỉ:</b> ${p.address}</li>
+                            <li><b>Trình độ học vấn:</b> ${p.education}</li>
+                            <li><b>Chứng chỉ:</b> ${p.certificate}</li>
+                            <li><b>Kinh nghiệm nghề nghiệp:</b> ${p.experience}</li>
+                            <li><b>CV:</b> <a href="#">${p.cv}</a></li>
+                        </ul>
+                    </div>
+                    `;
+                });
+                document.getElementById('profile-list').innerHTML = html;
+
+                // Ẩn các section khác, hiện section xem hồ sơ
+                document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('hidden'));
+                document.getElementById('section-view-profile').classList.remove('hidden');
+                document.getElementById('breadcrumb').innerHTML = '<span>Quản lý hồ sơ ứng viên > Xem hồ sơ</span>';
+            };
+
+            // Quay lại danh sách ứng viên
+            document.getElementById('back-to-list-btn').onclick = function() {
+                document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('hidden'));
+                document.getElementById('section-list').classList.remove('hidden');
+                document.getElementById('breadcrumb').innerHTML = '<span>Quản lý hồ sơ ứng viên > Danh sách ứng viên</span>';
+            };
+            // Gửi lời mời phỏng vấn
+            document.getElementById('invite-btn').onclick = function() {
+                showGlobalPopup('Đã gửi lời mời phỏng vấn cho các ứng viên đã chọn');
+            };
+            // Xóa hồ sơ ứng viên
+            document.getElementById('delete-btn').onclick = function() {
+                // Lấy các checkbox được chọn
+                const checkboxes = document.querySelectorAll('.candidate-checkbox');
+                const selectedIndexes = [];
+                checkboxes.forEach((cb, idx) => {
+                    if (cb.checked) selectedIndexes.push(idx);
+                });
+
+                if (selectedIndexes.length === 0) return;
+
+                showConfirmPopup('Bạn có chắc chắn muốn xóa các hồ sơ đã chọn?', function() {
+                    // Xóa khỏi candidateRows (theo index ngược để không bị lệch)
+                    selectedIndexes.sort((a, b) => b - a).forEach(idx => {
+                        candidateRows.splice(idx, 1);
+                    });
+                    renderCandidateTable();
+                    document.getElementById('select-all-candidates').checked = false;
+                    showGlobalPopup('Đã xóa thành công!', function() {
+                    // Hành động sau khi đóng pop-up
+                    document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('hidden'));
+                    document.getElementById('section-list').classList.remove('hidden');
+                    document.getElementById('breadcrumb').classList.remove('hidden');
+                    document.getElementById('breadcrumb').innerHTML = '<span>Quản lý hồ sơ ứng viên > Danh sách ứng viên</span>';
+                });
+            });
+            };
+
+                    renderCandidateTable();
+            //Gửi lời mời phỏng vấn
+            document.getElementById('send-invite-btn').onclick = function() {
+                    showGlobalPopup('Đã gửi lời mời phỏng vấn thành công!');
+                };
+                const cancelBtn = document.getElementById('cancel-invite-btn');
+                if (cancelBtn) cancelBtn.remove();
+            //Xem danh sách tin tuyển dụng: tìm, xem, xóa, cập nhật
+                    // Demo dữ liệu tin tuyển dụng
+            const jobRows = [
+        {
+            branch: "Công ty TNHH ABC chi nhánh Tây Nguyên",
+            area: "Lâm Đồng",
+            position: "Lập trình viên Frontend",
+            salary: "15-20 triệu",
+            type: "Hợp đồng 6 tháng",
+            requirement: "Tốt nghiệp đại học CNTT, có kinh nghiệm ReactJS, teamwork tốt, chịu được áp lực cao.",
+            benefit: "Lương tháng 13, bảo hiểm đầy đủ, du lịch hàng năm, môi trường năng động.",
+            posted: "01/10/2023",
+            deadline: "31/10/2023",
+            status: "Đã đóng"
+        },
+        {
+            branch: "Công ty cổ phần cấp nước Ninh Thuận",
+            area: "Phan Rang - Tháp Chàm",
+            position: "Nhân viên kế toán",
+            salary: "8-12 triệu",
+            type: "Part-time",
+            requirement: "Có kỹ năng kế toán, ưu tiên ứng viên có kinh nghiệm.",
+            benefit: "Thưởng lễ tết, môi trường thân thiện, hỗ trợ ăn trưa.",
+            posted: "01/10/2024",
+            deadline: "31/10/2024",
+            status: "Đã đóng"
+        },
+        {
+            branch: "Quán ăn Bếp của Ngoại",
+            area: "Hồ Chí Minh",
+            position: "Phụ bếp",
+            salary: "6-8 triệu",
+            type: "Part-time",
+            requirement: "Chăm chỉ, nhanh nhẹn, ưu tiên có kinh nghiệm phụ bếp.",
+            benefit: "Bao ăn, thưởng chuyên cần, môi trường thân thiện.",
+            posted: "01/03/2025",
+            deadline: "31/03/2025",
+            status: "Đang tuyển"
+        }
+    ];
+
+        // Render bảng tin tuyển dụng
+            function renderJobTable(filter = "") {
+            const tbody = document.getElementById('job-list');
+            let html = "";
+            let idx = 1;
+            jobRows.forEach((job) => {
+                // Ghép các trường cần tìm kiếm
+                const searchStr = (job.branch + job.area + job.position + job.type + job.deadline + job.posted + job.status).toLowerCase();
+                if (!filter || searchStr.includes(filter)) {
+                    html += `<tr>
+                        <td><input type="checkbox" class="job-checkbox"></td>
+                        <td>${idx++}</td>
+                        <td>${job.branch}</td>
+                        <td>${job.area}</td>
+                        <td>${job.position}</td>
+                        <td>${job.type}</td>
+                        <td>${job.posted}</td>
+                        <td>${job.deadline}</td>
+                        <td>${job.status}</td>
+                    </tr>`;
+                }
+            });
+            tbody.innerHTML = html;
+            updateJobActionButtons();
+        }
+
+        // Cập nhật trạng thái button
+        function updateJobActionButtons() {
+            const checkboxes = document.querySelectorAll('.job-checkbox');
+            const checked = Array.from(checkboxes).some(cb => cb.checked);
+            document.getElementById('view-job-btn').disabled = !checked;
+            document.getElementById('delete-job-btn').disabled = !checked;
+            document.getElementById('update-job-btn').disabled = !checked;
+        }
+
+        // Tìm kiếm tin tuyển dụng
+        document.getElementById('job-search-btn').onclick = function() {
+            const value = document.getElementById('job-search-input').value.trim().toLowerCase();
+            renderJobTable(value);
+        };
+        document.getElementById('job-search-input').oninput = function(e) {
+             if (!e.target.value) renderJobTable();
+        };
+        // Chọn tất cả
+        document.addEventListener('change', function(e) {
+            if (e.target.id === 'select-all-job') {
+                document.querySelectorAll('.job-checkbox').forEach(cb => cb.checked = e.target.checked);
+                updateJobActionButtons();
+            }
+            if (e.target.classList.contains('job-checkbox')) {
+                updateJobActionButtons();
+            }
+        });
+
+        // Xem tin tuyển dụng
+        document.getElementById('view-job-btn').onclick = function() {
+            const checkboxes = document.querySelectorAll('.job-checkbox');
+            const selectedIndexes = [];
+            checkboxes.forEach((cb, idx) => {
+                if (cb.checked) selectedIndexes.push(idx);
+            });
+            let html = "";
+            selectedIndexes.forEach(i => {
+                const job = jobRows[i];
+                html += `
+                <div class="profile-card">
+                    <ul>
+                        <li><b>Tên công ty/chi nhánh:</b> ${job.branch}</li>
+                        <li><b>Khu vực:</b> ${job.area}</li>
+                        <li><b>Vị trí tuyển dụng:</b> ${job.position}</li>
+                        <li><b>Mức lương:</b> ${job.salary}</li>
+                        <li><b>Loại hình việc làm:</b> ${job.type}</li>
+                        <li><b>Yêu cầu:</b> ${job.requirement}</li>
+                        <li><b>Quyền lợi:</b> ${job.benefit}</li>
+                        <li><b>Ngày đăng tin:</b> ${job.posted}</li>
+                        <li><b>Hạn chót nộp hồ sơ:</b> ${job.deadline}</li>
+                        <li><b>Trạng thái:</b> ${job.status}</li>
+                    </ul>
+                </div>
+                `;
+            });
+            document.getElementById('job-view-list').innerHTML = html;
+            document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById('section-view-job').classList.remove('hidden');
+            document.getElementById('job-breadcrumb').classList.remove('hidden');
+            document.getElementById('job-breadcrumb').innerHTML = '<span>Quản lý tin tuyển dụng > Xem tin tuyển dụng</span>';
+        };
+
+        // Quay lại danh sách tin
+        document.getElementById('back-to-job-list-btn').onclick = function() {
+            document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById('job-list-section').classList.remove('hidden');
+            document.getElementById('job-breadcrumb').classList.remove('hidden');
+            document.getElementById('job-breadcrumb').innerHTML = '<span>Quản lý tin tuyển dụng > Danh sách tin tuyển dụng</span>';
+        };
+
+        // Xóa tin tuyển dụng
+        document.getElementById('delete-job-btn').onclick = function() {
+            const checkboxes = document.querySelectorAll('.job-checkbox');
+            const selectedIndexes = [];
+            checkboxes.forEach((cb, idx) => {
+                if (cb.checked) selectedIndexes.push(idx);
+            });
+            if (selectedIndexes.length === 0) return;
+            showConfirmPopup('Bạn có chắc chắn muốn xóa các tin tuyển dụng đã chọn?', function() {
+                selectedIndexes.sort((a, b) => b - a).forEach(idx => {
+                    jobRows.splice(idx, 1);
+                });
+                renderJobTable();
+                document.getElementById('select-all-job').checked = false;
+                updateJobActionButtons();
+                showGlobalPopup('Đã xóa thành công!', function() {
+                // Hành động sau khi đóng pop-up
+                document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('hidden'));
+                document.getElementById('job-list-section').classList.remove('hidden');
+                document.getElementById('job-breadcrumb').classList.remove('hidden');
+                document.getElementById('job-breadcrumb').innerHTML = '<span>Quản lý tin tuyển dụng > Danh sách tin tuyển dụng</span>';
+            });
+            });
+        };
+
+        // Sửa tin tuyển dụng
+        document.getElementById('update-job-btn').onclick = function() {
+            const checkboxes = document.querySelectorAll('.job-checkbox');
+            let editIndex = -1;
+            checkboxes.forEach((cb, idx) => {
+                if (cb.checked && editIndex === -1) editIndex = idx;
+            });
+            if (editIndex === -1) return;
+            const job = jobRows[editIndex];
+            // Render form
+            let html = `
+                <label>Tên công ty/chi nhánh:<input type="text" id="edit-branch" value="${job.branch}"></label><br>
+                <label>Khu vực:<input type="text" id="edit-area" value="${job.area}"></label><br>
+                <label>Vị trí tuyển dụng:<input type="text" id="edit-position" value="${job.position}"></label><br>
+                <label>Mức lương:<input type="text" id="edit-salary" value="${job.salary}"></label><br>
+                <label>Loại hình việc làm:<input type="text" id="edit-type" value="${job.type}"></label><br>
+                <label>Yêu cầu:<textarea id="edit-requirement">${job.requirement}</textarea></label><br>
+                <label>Quyền lợi:<textarea id="edit-benefit">${job.benefit}</textarea></label><br>
+                <label>Ngày đăng tin:<input type="date" id="edit-posted" value="${job.posted.split('/').reverse().join('-')}"></label><br>
+                <label>Hạn chót nộp hồ sơ:<input type="date" id="edit-deadline" value="${job.deadline.split('/').reverse().join('-')}"></label><br>
+                <label>Trạng thái:
+                    <select id="edit-status">
+                        <option value="Đang tuyển" ${job.status === "Đang tuyển" ? "selected" : ""}>Đang tuyển</option>
+                        <option value="Đã đóng" ${job.status === "Đã đóng" ? "selected" : ""}>Đã đóng</option>
+                    </select>
+                </label>
+            `;
+            document.getElementById('edit-job-form').innerHTML = html;
+            document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById('section-edit-job').classList.remove('hidden');
+            document.getElementById('job-breadcrumb').classList.remove('hidden');
+            document.getElementById('job-breadcrumb').innerHTML = '<span>Quản lý tin tuyển dụng > Cập nhật tin tuyển dụng</span>';
+
+            // Lưu index đang sửa vào form để dùng khi lưu
+            document.getElementById('edit-job-form').setAttribute('data-edit-index', editIndex);
+        };
+
+        // Lưu tin tuyển dụng đã sửa
+        document.getElementById('save-job-btn').onclick = function() {
+            const idx = document.getElementById('edit-job-form').getAttribute('data-edit-index');
+            if (idx === null) return;
+            jobRows[idx] = {
+                branch: document.getElementById('edit-branch').value,
+                area: document.getElementById('edit-area').value,
+                position: document.getElementById('edit-position').value,
+                salary: document.getElementById('edit-salary').value,
+                type: document.getElementById('edit-type').value,
+                requirement: document.getElementById('edit-requirement').value,
+                benefit: document.getElementById('edit-benefit').value,
+                posted: document.getElementById('edit-posted').value.split('-').reverse().join('/'),
+                deadline: document.getElementById('edit-deadline').value.split('-').reverse().join('/'),
+                status: document.getElementById('edit-status').value
+            };
+            renderJobTable();
+            showGlobalPopup('Đã cập nhật tin tuyển dụng!', function() {
+                // Hành động sau khi đóng pop-up
+                document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('hidden'));
+                document.getElementById('job-list-section').classList.remove('hidden');
+                document.getElementById('job-breadcrumb').classList.remove('hidden');
+                document.getElementById('job-breadcrumb').innerHTML = '<span>Quản lý tin tuyển dụng > Danh sách tin tuyển dụng</span>';
+            });
+        };
+
+        // Hủy sửa tin
+        document.getElementById('cancel-edit-job-btn').onclick = function() {
+            document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById('job-list-section').classList.remove('hidden');
+            document.getElementById('job-breadcrumb').classList.remove('hidden');
+            document.getElementById('job-breadcrumb').innerHTML = '<span>Quản lý tin tuyển dụng > Danh sách tin tuyển dụng</span>';
+        };
+        renderJobTable();
+        // Ẩn tất cả section-content, chỉ hiện danh sách hồ sơ ứng viên khi load trang
+        document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('hidden'));
+    document.getElementById('section-list').classList.remove('hidden');
+    // Nếu có breadcrumb, cập nhật luôn
+    if(document.getElementById('breadcrumb')) {
+        document.getElementById('breadcrumb').classList.remove('hidden');
+        document.getElementById('breadcrumb').innerHTML = '<span>Quản lý hồ sơ ứng viên > Danh sách ứng viên</span>';
+    }
+});
+   //Đăng tin
+        document.getElementById('submit-job-btn').onclick = function() {
+    // Lấy dữ liệu từ form
+        const job = {
+            branch: document.getElementById('create-branch').value,
+            area: document.getElementById('create-area').value,
+            position: document.getElementById('create-position').value,
+            salary: document.getElementById('create-salary').value,
+            type: document.getElementById('create-type').value,
+            requirement: document.getElementById('create-requirement').value,
+            benefit: document.getElementById('create-benefit').value,
+            posted: document.getElementById('create-posted').value.split('-').reverse().join('/'),
+            deadline: document.getElementById('create-deadline').value.split('-').reverse().join('/'),
+            status: document.getElementById('create-status').value
+        };
+    // Hiện pop-up
+            document.getElementById('job-popup').style.display = 'flex';
+            // Có thể push vào jobRows nếu muốn hiển thị ngay:
+            // jobRows.push(job);
+            // renderJobTable();
+        };
+
+            document.getElementById('popup-ok-btn').onclick = function() {
+                document.getElementById('job-popup').style.display = 'none';
+                // Quay lại danh sách tin tuyển dụng
+                document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('hidden'));
+                document.getElementById('job-list-section').classList.remove('hidden');
+                document.getElementById('job-breadcrumb').classList.remove('hidden');
+                document.getElementById('job-breadcrumb').innerHTML = '<span>Quản lý tin tuyển dụng > Danh sách tin tuyển dụng</span>';
+            };
+
+            document.getElementById('cancel-create-job-btn').onclick = function() {
+                document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('hidden'));
+                document.getElementById('job-list-section').classList.remove('hidden');
+                document.getElementById('job-breadcrumb').classList.remove('hidden');
+                document.getElementById('job-breadcrumb').innerHTML = '<span>Quản lý tin tuyển dụng > Danh sách tin tuyển dụng</span>';
+            };
+            // Hiển thị pop-up toàn cục thay alert
+            function showGlobalPopup(message, callback) {
+                document.getElementById('global-popup-message').innerText = message;
+                const popup = document.getElementById('global-popup');
+                popup.classList.add('active');
+                document.getElementById('global-popup-ok-btn').onclick = function() {
+                    popup.classList.remove('active');
+                    if (typeof callback === 'function') callback();
+                };
+            }
+            //hàm thay confirm
+            function showConfirmPopup(message, onOk, onCancel) {
+                // Tạo popup xác nhận nếu chưa có
+                let confirmPopup = document.getElementById('confirm-popup');
+                if (!confirmPopup) {
+                    confirmPopup = document.createElement('div');
+                    confirmPopup.id = 'confirm-popup';
+                    confirmPopup.className = 'popup-overlay';
+                    confirmPopup.innerHTML = `
+                        <div class="popup-content">
+                            <div id="confirm-popup-message" style="font-size:17px;font-weight:500;margin-bottom:18px;"></div>
+                            <button id="confirm-ok-btn" class="action-btn" style="width:100px;margin-right:12px;">OK</button>
+                            <button id="confirm-cancel-btn" class="action-btn" style="width:100px;">Hủy</button>
+                        </div>
+                    `;
+                    document.body.appendChild(confirmPopup);
+                }
+                document.getElementById('confirm-popup-message').innerText = message;
+                confirmPopup.classList.add('active');
+                document.getElementById('confirm-ok-btn').onclick = function() {
+                    confirmPopup.classList.remove('active');
+                    if (typeof onOk === 'function') onOk();
+                };
+                document.getElementById('confirm-cancel-btn').onclick = function() {
+                    confirmPopup.classList.remove('active');
+                    if (typeof onCancel === 'function') onCancel();
+                };
+            }
+            document.getElementById('invite-btn').onclick = function() {
+                // Lấy tên ứng viên đã chọn
+                const checkboxes = document.querySelectorAll('.candidate-checkbox');
+                const selectedIndexes = [];
+                checkboxes.forEach((cb, idx) => {
+                    if (cb.checked) selectedIndexes.push(idx);
+                });
+                if (selectedIndexes.length === 0) return;
+
+                // Lấy tên ứng viên (nếu chọn nhiều thì ghép tên)
+                const candidateNames = [];
+                selectedIndexes.forEach(idx => {
+                    const row = document.querySelectorAll('#candidate-list tr')[idx];
+                    if (row) {
+                        const name = row.children[2].innerText;
+                        candidateNames.push(name);
+                    }
+                });
+
+                // Ẩn tất cả section, menubar, breadcrumb
+                document.querySelectorAll('.section-content').forEach(sec => sec.classList.add('hidden'));
+                document.querySelectorAll('.menubar').forEach(mb => mb.classList.add('hidden'));
+                document.querySelectorAll('.breadcrumb').forEach(bc => bc.classList.add('hidden'));
+
+                // Hiện section quản lý quy trình tuyển dụng và tab gửi lời mời
+                document.getElementById('section-interview-management').classList.remove('hidden');
+                document.getElementById('interview-invite').classList.remove('hidden');
+                document.getElementById('interview-menubar').classList.remove('hidden');
+                document.getElementById('interview-breadcrumb').classList.remove('hidden');
+                document.getElementById('interview-breadcrumb').innerHTML = '<span>Quản lý quy trình tuyển dụng > Gửi lời mời phỏng vấn</span>';
+
+                // Đặt tab menubar active đúng
+                document.querySelectorAll('#interview-menubar .menubar-item').forEach(i => i.classList.remove('active'));
+                document.querySelector('#interview-menubar .menubar-item[data-tab="invite"]').classList.add('active');
+
+                // Điền tên ứng viên vào form
+                document.getElementById('invite-candidate').value = candidateNames.join(', ');
+            };
+            //Xem phản hồi
+           // Demo dữ liệu phản hồi
+            const feedbacks = [
+                {
+                    type: "accept",
+                    candidate: "Nguyễn Văn A",
+                    position: "Lập trình viên Frontend"
+                },
+                {
+                    type: "reject",
+                    candidate: "Trần Thị B",
+                    position: "Nhân viên kế toán"
+                },
+                {
+                    type: "accept",
+                    candidate: "Lê Văn C",
+                    position: "Phụ bếp"
+                }
+            ];
+
+            // Hàm render phản hồi
+            function renderFeedbackList() {
+                const list = document.getElementById('feedback-list');
+                if (!list) return;
+                let html = "";
+                feedbacks.forEach((fb, idx) => {
+                    html += `
+                    <div class="feedback-item ${fb.type}">
+                        <span class="feedback-type">
+                            ${fb.type === "accept" ? "✅ Đồng ý phỏng vấn" : "❌ Từ chối phỏng vấn"}
+                        </span>
+                        <span class="feedback-detail">
+                            <b>Ứng viên:</b> ${fb.candidate} &nbsp;|&nbsp; <b>Vị trí:</b> ${fb.position}
+                        </span>
+                        <span class="feedback-remove" title="Xóa thông báo" onclick="removeFeedback(${idx})">&#10006;</span>
+                    </div>
+                    `;
+                });
+                list.innerHTML = html;
+            }
+
+            // Xóa phản hồi
+            function removeFeedback(idx) {
+                feedbacks.splice(idx, 1);
+                renderFeedbackList();
+            }
+            window.removeFeedback = removeFeedback;
+            // Gọi render khi vào tab feedback
+            document.querySelectorAll('#interview-menubar .menubar-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    if (this.getAttribute('data-tab') === 'feedback') {
+                        renderFeedbackList();
+                    }
+                });
+            });
+            //Lưu đánh giá sau phỏng vấn
+            document.getElementById('save-review-btn').onclick = function() {
+                showGlobalPopup('Đã cập nhật đánh giá!', function() {
+                document.getElementById('review-form').reset();
+            });
+};
+
+    </script>
+</body>
+</html>

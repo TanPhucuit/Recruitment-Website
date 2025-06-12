@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <title>TalentHub</title>
+</head>
+
+<body>
+  <!-- <header class="top-header">
+    <div class="menu-container" id="menuToggle">
+      <div class="menu-icon">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 12H42M16 24H42M16 36H42M6 12H6.02M6 24H6.02M6 36H6.02" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+    </div>
+
+    <div class="username">Hi, username</div>
+    <div class="user-icon">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 42V38C40 35.8783 39.1571 33.8434 37.6569 32.3431C36.1566 30.8429 34.1217 30 32 30H16C13.8783 30 11.8434 30.8429 10.3431 32.3431C8.84285 33.8434 8 35.8783 8 38V42M32 14C32 18.4183 28.4183 22 24 22C19.5817 22 16 18.4183 16 14C16 9.58172 19.5817 6 24 6C28.4183 6 32 9.58172 32 14Z" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </div>
+  </header> -->
+
+  <div class="content-wrapper">
+    <nav class="sidebar" id="sidebar">
+      <div class="nav-options">
+        <a href="#" class="nav-item" id="profileManagement">Quản lý hồ sơ</a>
+        <a href="#" class="nav-item" id="apply">Ứng tuyển</a>
+        <a href="#" class="nav-item" id="test">Làm bài test</a>
+        <a href="#" class="nav-item" id="interviews">Lời mời phỏng vấn</a>
+      </div>
+    </nav>
+
+    <!-- Trang chủ -->
+    <div class="interface" id="homeSection">
+      <main class="welcome-content">
+        <h1 class="welcome-title">CHÀO MỪNG BẠN!</h1>
+        <h2 class="welcome-subtitle">ĐẾN VỚI WEBSITE QUẢN LÝ TUYỂN DỤNG TALENTHUB</h2>
+      </main>
+    </div>
+
+    <!-- quản lý hồ sơ - xem + xóa -->
+    <div class="interface hidden" id="ProfileSection">
+      <main class="main-content">
+        <div class="action-buttons">
+          <button class="action-button" id="create-profile-btn">+ Tạo mới hồ sơ</button>
+          <button class="action-button" id="cv-btn">CV</button>
+        </div>
+
+        <section class="profile-form-container">
+          <h1 class="profile-title">Hồ sơ của bạn</h1>
+
+          <div class="profile-info">
+            <div class="form-group">
+              <div class="form-label">Họ và tên</div>
+              <div class="form-value">Nguyễn Văn A</div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-label">Ngày sinh</div>
+              <div class="form-value">01/01/1990</div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-label">Số điện thoại</div>
+              <div class="form-value">0123456789</div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-label">Email</div>
+              <div class="form-value">example@email.com</div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-label">Địa chỉ</div>
+              <div class="form-value">123 Đường ABC, Quận XYZ, Thành phố HCM</div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-label">Trình độ học vấn</div>
+              <div class="form-value">Đại học</div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-label">Chứng chỉ</div>
+              <div class="form-value">TOEIC 750, Chứng chỉ tin học văn phòng</div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-label">Kinh nghiệm nghề nghiệp</div>
+              <div class="form-value">5 năm kinh nghiệm trong lĩnh vực công nghệ thông tin. Từng làm việc tại Công ty ABC với vị trí Developer.</div>
+            </div>
+          </div>
+        </section>
+
+        <button class="button" id="delete-profile-btn">Xóa hồ sơ</button>
+
+        <div class="chat-icon-container">
+          <svg class="chat-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 0C11.1914 0 0 10.3906 0 23.2143C0 28.75 2.08984 33.817 5.56641 37.8013C4.3457 43.4263 0.263672 48.4375 0.214844 48.4933C0 48.75 -0.0585937 49.1295 0.0683594 49.4643C0.195312 49.7991 0.46875 50 0.78125 50C7.25586 50 12.1094 46.4509 14.5117 44.2634C17.7051 45.6362 21.25 46.4286 25 46.4286C38.8086 46.4286 50 36.0379 50 23.2143C50 10.3906 38.8086 0 25 0ZM12.5 26.7857C10.7715 26.7857 9.375 25.1897 9.375 23.2143C9.375 21.2388 10.7715 19.6429 12.5 19.6429C14.2285 19.6429 15.625 21.2388 15.625 23.2143C15.625 25.1897 14.2285 26.7857 12.5 26.7857ZM25 26.7857C23.2715 26.7857 21.875 25.1897 21.875 23.2143C21.875 21.2388 23.2715 19.6429 25 19.6429C26.7285 19.6429 28.125 21.2388 28.125 23.2143C28.125 25.1897 26.7285 26.7857 25 26.7857ZM37.5 26.7857C35.7715 26.7857 34.375 25.1897 34.375 23.2143C34.375 21.2388 35.7715 19.6429 37.5 19.6429C39.2285 19.6429 40.625 21.2388 40.625 23.2143C40.625 25.1897 39.2285 26.7857 37.5 26.7857Z" fill="black"></path>
+          </svg>
+        </div>
+      </main>
+    </div>
+    <!-- quản lý hồ sơ - tạo hồ sơ -->
+     <div class="interface hidden" id="createProfileSection">
+      <main class="main-content">
+        <section class="profile-form-container">
+        <h2 class="profile-title">Hồ sơ của bạn</h2>
+        <form class="profile-form">
+          <div class="form-group">
+            <label for="fullname" class="form-label">Họ và tên</label>
+             <textarea id="fullname" class="form-textarea"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="birthdate" class="form-label">Ngày sinh</label>
+             <textarea id="birthdate" class="form-textarea"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="phone" class="form-label">Số điện thoại</label>
+            <textarea id="phone" class="form-textarea"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <textarea id="email" class="form-textarea"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="address" class="form-label">Địa chỉ</label>
+            <textarea id="address" class="form-textarea"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="education" class="form-label">Trình độ học vấn</label>
+             <textarea id="education" class="form-textarea"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="certificates" class="form-label">Chứng chỉ (nếu có)</label>
+            <textarea id="certificates" class="form-textarea"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="experience" class="form-label">Kinh nghiệm nghề nghiệp</label>
+            <textarea id="experience" class="form-textarea"></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="button" id="createButton">Tạo</button>
+          </div>
+        </form>
+      </section>
+      <button class="exitButton" id="exitCreateButton">Thoát</button>
+
+      <div class="chat-icon-container">
+          <svg class="chat-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 0C11.1914 0 0 10.3906 0 23.2143C0 28.75 2.08984 33.817 5.56641 37.8013C4.3457 43.4263 0.263672 48.4375 0.214844 48.4933C0 48.75 -0.0585937 49.1295 0.0683594 49.4643C0.195312 49.7991 0.46875 50 0.78125 50C7.25586 50 12.1094 46.4509 14.5117 44.2634C17.7051 45.6362 21.25 46.4286 25 46.4286C38.8086 46.4286 50 36.0379 50 23.2143C50 10.3906 38.8086 0 25 0ZM12.5 26.7857C10.7715 26.7857 9.375 25.1897 9.375 23.2143C9.375 21.2388 10.7715 19.6429 12.5 19.6429C14.2285 19.6429 15.625 21.2388 15.625 23.2143C15.625 25.1897 14.2285 26.7857 12.5 26.7857ZM25 26.7857C23.2715 26.7857 21.875 25.1897 21.875 23.2143C21.875 21.2388 23.2715 19.6429 25 19.6429C26.7285 19.6429 28.125 21.2388 28.125 23.2143C28.125 25.1897 26.7285 26.7857 25 26.7857ZM37.5 26.7857C35.7715 26.7857 34.375 25.1897 34.375 23.2143C34.375 21.2388 35.7715 19.6429 37.5 19.6429C39.2285 19.6429 40.625 21.2388 40.625 23.2143C40.625 25.1897 39.2285 26.7857 37.5 26.7857Z" fill="black"></path>
+          </svg>
+        </div>  
+      </main>
+    </div>
+    <!-- qlhs - tải CV -->
+     <div class="interface hidden" id="uploadCVSection">
+      <main class="main-content">
+        <section class="cv-section">
+        <div id="cv-container" class="cv-container">
+          <div id="no-cv-message" class="no-cv-message">
+            <p>Bạn chưa có CV, tải lên ngay</p>
+            <div class="upload-area">
+              <label for="cv-upload" class="upload-label">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="upload-icon">
+                  <path d="M12 15V3M12 3L8 7M12 3L16 7" stroke="#3374ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M3 15V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V15" stroke="#3374ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Chọn file từ máy tính</span>
+              </label>
+              <input type="file" id="cv-upload" class="file-input" accept=".pdf,.doc,.docx">
+            </div>
+          </div>
+      <button class="exitButton" id="exitCVButton">Thoát</button>
+
+      <div class="chat-icon-container">
+          <svg class="chat-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 0C11.1914 0 0 10.3906 0 23.2143C0 28.75 2.08984 33.817 5.56641 37.8013C4.3457 43.4263 0.263672 48.4375 0.214844 48.4933C0 48.75 -0.0585937 49.1295 0.0683594 49.4643C0.195312 49.7991 0.46875 50 0.78125 50C7.25586 50 12.1094 46.4509 14.5117 44.2634C17.7051 45.6362 21.25 46.4286 25 46.4286C38.8086 46.4286 50 36.0379 50 23.2143C50 10.3906 38.8086 0 25 0ZM12.5 26.7857C10.7715 26.7857 9.375 25.1897 9.375 23.2143C9.375 21.2388 10.7715 19.6429 12.5 19.6429C14.2285 19.6429 15.625 21.2388 15.625 23.2143C15.625 25.1897 14.2285 26.7857 12.5 26.7857ZM25 26.7857C23.2715 26.7857 21.875 25.1897 21.875 23.2143C21.875 21.2388 23.2715 19.6429 25 19.6429C26.7285 19.6429 28.125 21.2388 28.125 23.2143C28.125 25.1897 26.7285 26.7857 25 26.7857ZM37.5 26.7857C35.7715 26.7857 34.375 25.1897 34.375 23.2143C34.375 21.2388 35.7715 19.6429 37.5 19.6429C39.2285 19.6429 40.625 21.2388 40.625 23.2143C40.625 25.1897 39.2285 26.7857 37.5 26.7857Z" fill="black"></path>
+          </svg>
+        </div>  
+          
+      </main>
+    </div>
+
+    <!-- ứng tuyển -->
+    <div class="interface hidden" id="applySection">
+        <main class="main-content">
+          <div class="search-bar">
+              <div class="search-container">
+                <input type="text" class="search-content" placeholder="Tìm kiếm công việc">
+
+                <div class="search-trailing">
+                  <div class="search-icon-wrapper">
+                    <div class="search-icon-content">
+                      <div class="search-icon-layer">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/d22deeb1f56c4a1abdf281f12a57df38/60417cb378d43d78584e8f99017e90c675f4d68f?placeholderIfAbsent=true" class="search-icon" alt="Search icon" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <button class="button" id="trackProcessbutton">Theo dõi quy trình tuyển dụng</button>         
+
+          <div class="job-card">
+              <div class="job-title">Lập trình viên Frontend</div>
+              <div class="job-details">Công ty: Công ty A</div>
+              <div class="job-details">Ngày đăng: 14/05/2025</div>
+              <button class="button">Xem thêm</button>
+          </div>
+
+          <div class="job-card">
+              <div class="job-title">Lập trình viên Marketing</div>
+              <div class="job-details">Công ty: Công ty B</div>
+              <div class="job-details">Ngày đăng: 14/04/2025</div>
+              <button class="button">Xem thêm</button>
+          </div>
+
+          <div class="job-card">
+              <div class="job-title">Chuyên viên kiểm thử phần mềm</div>
+              <div class="job-details">Công ty: Công ty XYZ</div>
+              <div class="job-details">Ngày đăng: 14/05/2025</div>
+              <button class="button">Xem thêm</button>
+          </div>
+
+          <div class="job-card">
+              <div class="job-title">Chuyên viên kiểm thử phần mềm</div>
+              <div class="job-details">Công ty: Công ty C</div>
+              <div class="job-details">Ngày đăng: 14/05/2025</div>
+              <button class="button" >Xem thêm</button>
+          </div>
+
+          <div class="chat-icon-container">
+          <svg class="chat-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 0C11.1914 0 0 10.3906 0 23.2143C0 28.75 2.08984 33.817 5.56641 37.8013C4.3457 43.4263 0.263672 48.4375 0.214844 48.4933C0 48.75 -0.0585937 49.1295 0.0683594 49.4643C0.195312 49.7991 0.46875 50 0.78125 50C7.25586 50 12.1094 46.4509 14.5117 44.2634C17.7051 45.6362 21.25 46.4286 25 46.4286C38.8086 46.4286 50 36.0379 50 23.2143C50 10.3906 38.8086 0 25 0ZM12.5 26.7857C10.7715 26.7857 9.375 25.1897 9.375 23.2143C9.375 21.2388 10.7715 19.6429 12.5 19.6429C14.2285 19.6429 15.625 21.2388 15.625 23.2143C15.625 25.1897 14.2285 26.7857 12.5 26.7857ZM25 26.7857C23.2715 26.7857 21.875 25.1897 21.875 23.2143C21.875 21.2388 23.2715 19.6429 25 19.6429C26.7285 19.6429 28.125 21.2388 28.125 23.2143C28.125 25.1897 26.7285 26.7857 25 26.7857ZM37.5 26.7857C35.7715 26.7857 34.375 25.1897 34.375 23.2143C34.375 21.2388 35.7715 19.6429 37.5 19.6429C39.2285 19.6429 40.625 21.2388 40.625 23.2143C40.625 25.1897 39.2285 26.7857 37.5 26.7857Z" fill="black"></path>
+          </svg>
+        </div>        
+        </main>
+    </div>
+
+    <!-- ứng tuyển - nộp hồ sơ -->
+    <div class="interface hidden" id="applyProfileSection">
+      <main class="main-content">
+        <div class="job-info-container">
+          <div class="job-title">Lập trình viên Frontend</div>
+          <div class="job-details">
+              <div>Công ty: Công ty A</div>
+              <div>Ngày đăng: 14/05/2025</div>
+              <div>Mức lương: 14000000 VNĐ</div>
+              <div>Quyền lợi nhân viên: xxxxxxxxxx</div>
+          </div>
+          <button class="exitButton" id="exitApplyButton">Thoát</button>
+          <button class="button">Nộp hồ sơ</button>
+        </div>
+        <div class="chat-icon-container">
+          <svg class="chat-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 0C11.1914 0 0 10.3906 0 23.2143C0 28.75 2.08984 33.817 5.56641 37.8013C4.3457 43.4263 0.263672 48.4375 0.214844 48.4933C0 48.75 -0.0585937 49.1295 0.0683594 49.4643C0.195312 49.7991 0.46875 50 0.78125 50C7.25586 50 12.1094 46.4509 14.5117 44.2634C17.7051 45.6362 21.25 46.4286 25 46.4286C38.8086 46.4286 50 36.0379 50 23.2143C50 10.3906 38.8086 0 25 0ZM12.5 26.7857C10.7715 26.7857 9.375 25.1897 9.375 23.2143C9.375 21.2388 10.7715 19.6429 12.5 19.6429C14.2285 19.6429 15.625 21.2388 15.625 23.2143C15.625 25.1897 14.2285 26.7857 12.5 26.7857ZM25 26.7857C23.2715 26.7857 21.875 25.1897 21.875 23.2143C21.875 21.2388 23.2715 19.6429 25 19.6429C26.7285 19.6429 28.125 21.2388 28.125 23.2143C28.125 25.1897 26.7285 26.7857 25 26.7857ZM37.5 26.7857C35.7715 26.7857 34.375 25.1897 34.375 23.2143C34.375 21.2388 35.7715 19.6429 37.5 19.6429C39.2285 19.6429 40.625 21.2388 40.625 23.2143C40.625 25.1897 39.2285 26.7857 37.5 26.7857Z" fill="black"></path>
+          </svg>
+        </div>    
+      </main>
+    </div>
+
+    <!-- ứng tuyển - quy trình -->
+     <div class="interface hidden" id="trackProcessSection">
+      <main class="main-content">
+          <div class="job-info-container">
+          <div class="job-title">Lập trình viên Frontend</div>
+          <div class="job-details">
+              <div>Công ty: Công ty ABC</div>
+              <div>Ngày đăng: 14/04/2025</div>
+          </div>
+            <div class="process-step">Nộp hồ sơ: ✔️</div>
+            <div class="process-step">Làm bài test: ❌</div>
+            <div class="process-step">Phỏng vấn: ❌</div>
+            <div class="process-step">Kết quả: ❌</div>
+          </div>
+
+      <div class="job-info-container">
+          <div class="job-title">Chuyên viên kiểm thử phần mềm</div>
+          <div class="job-details">
+              <div>Công ty: Công ty XYZ</div>
+              <div>Ngày đăng: 20/05/2025</div>
+          </div>
+          <div class="process-step">Nộp hồ sơ: ✔️</div>
+          <div class="process-step">Làm bài test: ✔️</div>
+          <div class="process-step">Phỏng vấn: ❌</div>
+          <div class="process-step">Kết quả: ❌</div>
+      </div>
+
+      <div class="job-info-container">
+          <div class="job-title">Chuyên viên Marketing</div>
+          <div class="job-details">
+              <div>Công ty: Công ty B</div>
+              <div>Ngày đăng: 04/05/2025</div>
+          </div>
+          <div class="process-step">Nộp hồ sơ: ✔️</div>
+          <div class="process-step">Làm bài test: ❌</div>
+          <div class="process-step">Phỏng vấn: ❌</div>
+          <div class="process-step">Kết quả: ❌</div>
+      </div>
+
+      <button class="exitButton" id="exitTrackButton">Thoát</button>
+
+        <div class="chat-icon-container">
+          <svg class="chat-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 0C11.1914 0 0 10.3906 0 23.2143C0 28.75 2.08984 33.817 5.56641 37.8013C4.3457 43.4263 0.263672 48.4375 0.214844 48.4933C0 48.75 -0.0585937 49.1295 0.0683594 49.4643C0.195312 49.7991 0.46875 50 0.78125 50C7.25586 50 12.1094 46.4509 14.5117 44.2634C17.7051 45.6362 21.25 46.4286 25 46.4286C38.8086 46.4286 50 36.0379 50 23.2143C50 10.3906 38.8086 0 25 0ZM12.5 26.7857C10.7715 26.7857 9.375 25.1897 9.375 23.2143C9.375 21.2388 10.7715 19.6429 12.5 19.6429C14.2285 19.6429 15.625 21.2388 15.625 23.2143C15.625 25.1897 14.2285 26.7857 12.5 26.7857ZM25 26.7857C23.2715 26.7857 21.875 25.1897 21.875 23.2143C21.875 21.2388 23.2715 19.6429 25 19.6429C26.7285 19.6429 28.125 21.2388 28.125 23.2143C28.125 25.1897 26.7285 26.7857 25 26.7857ZM37.5 26.7857C35.7715 26.7857 34.375 25.1897 34.375 23.2143C34.375 21.2388 35.7715 19.6429 37.5 19.6429C39.2285 19.6429 40.625 21.2388 40.625 23.2143C40.625 25.1897 39.2285 26.7857 37.5 26.7857Z" fill="black"></path>
+          </svg>
+        </div>    
+      </main>
+    </div>
+
+
+    <!-- Làm bài test -->
+    <div class="interface hidden" id="testSection">
+        <main class="main-content">
+          <div class="test-container">
+              <div class="input-group">
+                  <label for="testCode">Nhập mã bài test</label>
+                  <input type="text" id="testCode" placeholder="Nhập mã bài test">
+              </div>
+              <button class="button" id="startTestButton">Làm bài</button>
+
+              <div class="input-group">
+                  <label for="question1">Câu hỏi 1</label>
+                  <textarea id="question1" rows="3" placeholder="Nhập câu trả lời..."></textarea>
+              </div>
+
+              <div class="input-group">
+                  <label for="question2">Câu hỏi 2</label>
+                  <textarea id="question2" rows="3" placeholder="Nhập câu trả lời..."></textarea>
+              </div>
+
+              <div class="input-group">
+                  <label for="question3">Câu hỏi 3</label>
+                  <textarea id="question3" rows="3" placeholder="Nhập câu trả lời..."></textarea>
+              </div>
+              <button class="button" id="finishTestButton">Nộp bài</button>
+          </div>
+
+        </main>
+    </div>
+
+    <!-- lời mời phỏng vấn -->
+    <div class="interface hidden" id="interviewSection">
+        <main class="main-content">
+            <div class="notification-container">
+            <div class="notification-title">Chuyên viên kiểm thử phần mềm</div>
+            <div class="notification-details">
+                <div>Công ty: Công ty XYZ</div>
+                <div>Thời gian: 09:00 20/05/2025</div>
+                <div>Trạng thái: chưa trả lời</div>
+
+            </div>
+            <button class="button" id="rejectButton">Từ chối</button>
+            <button class="button">Đồng ý</button>
+        </div>
+        </main>
+    </div>
+
+
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+
+// Hàm ẩn tất cả các giao diện
+function hideAllSections() {
+    const sections = [
+        homeSection,
+        ProfileSection,
+        applySection,
+        testSection,
+        interviewSection,
+        applyProfileSection,
+        trackProcessSection,
+        uploadCVSection,
+        createProfileSection
+    ];
+    sections.forEach(section => section.classList.add('hidden'));
+}
+
+// Hiển thị trang chủ khi tải trang
+const homeSection = document.getElementById('homeSection');
+const ProfileSection = document.getElementById('ProfileSection');
+const applySection = document.getElementById('applySection');
+const testSection = document.getElementById('testSection');
+const interviewSection = document.getElementById('interviewSection');
+const applyProfileSection = document.getElementById('applyProfileSection');
+const trackProcessSection = document.getElementById('trackProcessSection');
+const uploadCVSection = document.getElementById('uploadCVSection');
+const createProfileSection = document.getElementById('createProfileSection');
+
+// Ẩn tất cả các giao diện và chỉ hiển thị trang chủ
+hideAllSections();
+homeSection.classList.remove('hidden');
+
+menuToggle.addEventListener('click', () => {
+    sidebar.style.display = sidebar.style.display === 'none' || sidebar.style.display === '' ? 'block' : 'none';
+});
+
+// Chuyển đổi giao diện giữa quản lý hồ sơ, ứng tuyển, làm bài test, và lời mời phỏng vấn
+const profileManagementOption = document.getElementById('profileManagement');
+const applyOption = document.getElementById('apply');
+const testOption = document.getElementById('test');
+const interviewOption = document.getElementById('interviews');
+
+profileManagementOption.addEventListener('click', (event) => {
+    event.preventDefault();
+    hideAllSections();
+    ProfileSection.classList.remove('hidden');
+});
+
+applyOption.addEventListener('click', (event) => {
+    event.preventDefault();
+    hideAllSections();
+    applySection.classList.remove('hidden');
+});
+
+testOption.addEventListener('click', (event) => {
+    event.preventDefault();
+    hideAllSections();
+    testSection.classList.remove('hidden');
+});
+
+interviewOption.addEventListener('click', (event) => {
+    event.preventDefault();
+    hideAllSections();
+    interviewSection.classList.remove('hidden');
+});
+
+// Sự kiện cho nút "Xem thêm"
+const jobCards = document.querySelectorAll('.job-card');
+jobCards.forEach(card => {
+    const viewButton = card.querySelector('.button');
+    viewButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        hideAllSections();
+        applyProfileSection.classList.remove('hidden');
+    });
+});
+
+// Sự kiện cho nút "Theo dõi quy trình tuyển dụng"
+const trackProcessButton = document.getElementById('trackProcessbutton');
+trackProcessButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    hideAllSections();
+    trackProcessSection.classList.remove('hidden');
+});
+
+// Sự kiện cho nút "Thoát" trong nộp hồ sơ
+const exitApplyButton = document.getElementById('exitApplyButton');
+exitApplyButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    hideAllSections();
+    applySection.classList.remove('hidden');
+});
+
+// Sự kiện cho nút "Thoát" trong quy trình
+const exitTrackButton = document.getElementById('exitTrackButton');
+exitTrackButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    hideAllSections();
+    applySection.classList.remove('hidden');
+});
+
+// Chuyển giao diện trong quản lý hồ sơ
+const createProfileButton = document.getElementById('create-profile-btn');
+const cvButton = document.getElementById('cv-btn');
+
+createProfileButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    hideAllSections();
+    createProfileSection.classList.remove('hidden');
+});
+
+cvButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    hideAllSections();
+    uploadCVSection.classList.remove('hidden');
+});
+
+// Sự kiện cho nút "Thoát" trong tạo hồ sơ
+exitCreateButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    hideAllSections();
+    ProfileSection.classList.remove('hidden');
+});
+
+// Sự kiện cho nút "Thoát" trong tải CV
+const exitCVButton = document.getElementById('exitCVButton');
+exitCVButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    hideAllSections();
+    ProfileSection.classList.remove('hidden');
+});
+  </script>
+
+</body>
+</html>

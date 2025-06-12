@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <title>TalentHub</title>
+</head>
+
+<body>
+  <!-- <header class="top-header">
+    <div class="menu-container" id="menuToggle">
+      <div class="menu-icon">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 12H42M16 24H42M16 36H42M6 12H6.02M6 24H6.02M6 36H6.02" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+    </div>
+
+    <div class="username">Hi, username</div>
+    <div class="user-icon">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 42V38C40 35.8783 39.1571 33.8434 37.6569 32.3431C36.1566 30.8429 34.1217 30 32 30H16C13.8783 30 11.8434 30.8429 10.3431 32.3431C8.84285 33.8434 8 35.8783 8 38V42M32 14C32 18.4183 28.4183 22 24 22C19.5817 22 16 18.4183 16 14C16 9.58172 19.5817 6 24 6C28.4183 6 32 9.58172 32 14Z" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </div>
+  </header> -->
+
+  <div class="content-wrapper">
+    <nav class="sidebar" id="sidebar">
+      <div class="nav-options">
+        <a href="#" class="nav-item" id="jobSearch">Duyệt tin tuyển dụng</a>
+        <a href="#" class="nav-item" id="candidateAccount">Tài khoản ứng viên</a>
+      </div>
+    </nav>
+    
+    <!-- trang chủ -->
+    <div class="interface" id="homeSection">
+      <main class="welcome-content">
+        <h1 class="welcome-title">CHÀO MỪNG BẠN!</h1>
+        <h2 class="welcome-subtitle">ĐẾN VỚI WEBSITE QUẢN LÝ TUYỂN DỤNG TALENTHUB</h2>
+      </main>
+    </div>
+    
+    <!-- tài khoản ứng viên -->
+    <div class="interface hidden" id="accountSection">
+      <main class="main-content">
+        <section class="candidate-section">
+          <div class="candidate-content">
+            <h1 class="section-title">Tìm ứng viên</h1>
+            <div class="search-bar">
+              <div class="search-container">
+                <div class="search-content"></div>
+                <div class="search-trailing">
+                  <div class="search-icon-wrapper">
+                    <div class="search-icon-content">
+                      <div class="search-icon-layer">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/d22deeb1f56c4a1abdf281f12a57df38/60417cb378d43d78584e8f99017e90c675f4d68f?placeholderIfAbsent=true" class="search-icon" alt="Search icon" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <article class="candidate-card">
+              <h2 class="candidate-name">Nguyễn Văn A</h2>
+              <div class="candidate-details">
+                <p class="candidate-phone">Số điện thoại: 0951123456</p>
+                <p class="candidate-email">Email: nguyenvana@gmail.com</p>
+                <button class="view-profile-btn" data-name="Nguyễn Văn A">Xem hồ sơ</button>
+              </div>
+            </article>
+
+            <article class="candidate-card">
+              <h2 class="candidate-name">Nguyễn Văn B</h2>
+              <div class="candidate-details">
+                <p class="candidate-phone">Số điện thoại: 0951123489</p>
+                <p class="candidate-email">Email: nguyenvanb@gmail.com</p>
+                <button class="view-profile-btn" data-name="Nguyễn Văn B">Xem hồ sơ</button>
+              </div>
+            </article>
+
+            <article class="candidate-card">
+              <h2 class="candidate-name">Nguyễn Văn C</h2>
+              <div class="candidate-details">
+                <p class="candidate-phone">Số điện thoại: 0951123978</p>
+                <p class="candidate-email">Email: cnguyenvan@gmail.com</p>
+                <button class="view-profile-btn" data-name="Nguyễn Văn C">Xem hồ sơ</button>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- duyệt tin  -->
+    <div class="interface hidden" id="jobSection">
+      <main class="main-content">
+        <section class="job-listings">
+          <article class="job-card">
+            <h2 class="job-title">Lập trình viên Frontend</h2>
+            <p class="company-name">Công ty: Công ty A</p>
+            <p class="post-date">Ngày đăng: 14/05/2025</p>
+            <p class="salary">Mức lương: 14000000 VND</p>
+            <p class="benefits">Quyền lợi nhân viên: xxxxxxxxxxx</p>
+            <div class="action-container">
+              <button class="approve-button">Duyệt</button>
+            </div>
+          </article>
+
+          <article class="job-card">
+            <h2 class="job-title">Chuyên viên Marketing</h2>
+            <p class="company-name">Công ty: Công ty A</p>
+            <p class="post-date">Ngày đăng: 14/05/2025</p>
+            <p class="salary">Mức lương: 10000000 VND</p>
+            <p class="benefits">Quyền lợi nhân viên: xxxxxxxxxxx</p>
+            <div class="action-container">
+              <button class="approve-button">Duyệt</button>
+            </div>
+          </article>
+
+          <article class="job-card">
+            <h2 class="job-title">Lập trình viên Frontend</h2>
+            <p class="company-name">Công ty: Công ty XYZ</p>
+            <p class="post-date">Ngày đăng: 10/05/2025</p>
+            <p class="salary">Mức lương: 15000000 VND</p>
+            <p class="benefits">Quyền lợi nhân viên: xxxxxxxxxxx</p>
+            <div class="action-container">
+              <button class="approve-button">Duyệt</button>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+    
+    <!-- xem hồ sơ ứng viên -->
+    <div class="interface hidden" id="candidateSection">
+      <main class="main-content">
+        <section class="profile-container">
+          <h1 class="profile-title">Hồ sơ của ứng viên</h1>
+          <div class="profile-info">
+            <div class="form-group">
+              <label class="form-label">Họ và tên:</label>
+              <span class="form-value" id="candidateName">Nguyễn Văn A</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Ngày sinh:</label>
+              <span class="form-value" id="candidateBirth">01/01/1990</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Số điện thoại:</label>
+              <span class="form-value" id="candidatePhone">0123456789</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Email:</label>
+              <span class="form-value" id="candidateEmail">example@gmail.com</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Địa chỉ:</label>
+              <span class="form-value" id="candidateAddress">123 Đường ABC, Thành phố XYZ</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Trình độ học vấn:</label>
+              <span class="form-value" id="candidateDegree">Cử nhân Công nghệ thông tin</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Chứng chỉ:</label>
+              <span class="form-value" id="candidateCertificates">Chứng chỉ A, Chứng chỉ B</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Kinh nghiệm nghề nghiệp:</label>
+              <span class="form-value" id="candidateExperience">5 năm kinh nghiệm phát triển phần mềm</span>
+            </div>
+          </div>
+        </section>
+
+        <div class="action-buttons">
+          <button class="exit-button" id="exitButton">Thoát</button>
+          <button class="delete-button">Xóa</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+
+    menuToggle.addEventListener('click', () => {
+      // Kiểm tra xem sidebar có đang hiển thị hay không
+      sidebar.style.display = sidebar.style.display === 'none' || sidebar.style.display === '' ? 'block' : 'none';
+    });
+
+    // Hiển thị trang chủ khi tải trang
+    const homeSection = document.getElementById('homeSection');
+    const jobSection = document.getElementById('jobSection');
+    const accountSection = document.getElementById('accountSection');
+    const candidateSection = document.getElementById('candidateSection');
+
+    // Ẩn các giao diện khác, chỉ hiển thị trang chủ
+    jobSection.classList.add('hidden');
+    accountSection.classList.add('hidden');
+    candidateSection.classList.add('hidden');
+
+    // Chuyển đổi giao diện giữa duyệt tin tuyển dụng và tài khoản ứng viên
+    const jobSearchOption = document.getElementById('jobSearch');
+    const candidateAccountOption = document.getElementById('candidateAccount');
+
+    jobSearchOption.addEventListener('click', (event) => {
+      event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+      jobSection.classList.remove('hidden'); // Hiện giao diện tìm ứng viên
+      homeSection.classList.add('hidden'); // Ẩn trang chủ
+      accountSection.classList.add('hidden'); // Ẩn giao diện tài khoản
+      candidateSection.classList.add('hidden'); // Ẩn giao diện hồ sơ
+      jobSearchOption.classList.add('active'); // Đánh dấu mục đã chọn
+      candidateAccountOption.classList.remove('active'); // Bỏ đánh dấu mục còn lại
+    });
+
+    candidateAccountOption.addEventListener('click', (event) => {
+      event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+      accountSection.classList.remove('hidden'); // Hiện giao diện tài khoản
+      homeSection.classList.add('hidden'); // Ẩn trang chủ
+      jobSection.classList.add('hidden'); // Ẩn giao diện tìm ứng viên
+      candidateSection.classList.add('hidden'); // Ẩn giao diện hồ sơ
+      candidateAccountOption.classList.add('active'); // Đánh dấu mục đã chọn
+      jobSearchOption.classList.remove('active'); // Bỏ đánh dấu mục còn lại
+    });
+
+    // Chuyển giao diện xem hồ sơ ứng viên và trở lại tài khoản ứng viên
+    const viewProfileButtons = document.querySelectorAll('.view-profile-btn');
+
+    viewProfileButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const candidateName = button.parentElement.previousElementSibling.innerText.split(': ')[1];
+        // Cập nhật thông tin hồ sơ ứng viên
+        document.getElementById('candidateName').textContent = candidateName;
+        // Hiển thị hồ sơ ứng viên
+        candidateSection.classList.remove('hidden'); // Hiện giao diện hồ sơ
+        accountSection.classList.add('hidden'); // Ẩn giao diện tài khoản
+        homeSection.classList.add('hidden'); // Ẩn trang chủ
+      });
+    });
+
+    // Thoát về giao diện tài khoản ứng viên
+    document.getElementById('exitButton').addEventListener('click', () => {
+      candidateSection.classList.add('hidden'); // Ẩn giao diện hồ sơ
+      accountSection.classList.remove('hidden'); // Hiện giao diện tài khoản
+    });
+  </script>
+</body>
+</html>

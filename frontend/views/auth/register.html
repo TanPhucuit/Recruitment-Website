@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talent Hub - Đăng ký</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-layout">
+            <div class="branding-section">
+                <div class="branding-content">
+                    <span>WEBSITE QUẢN LÝ TUYỂN DỤNG TALENT HUB</span>
+                </div>
+            </div>
+            <div class="interface" id="register">
+                <div class="register-form-container">
+                    <h2 class="form-title">Đăng ký</h2>
+                    <form class="registration-form">
+                        <div class="form-group">
+                            <label class="form-label" for="accountType">Loại tài khoản</label>
+                            <div class="select-wrapper">
+                                <select class="form-select" id="accountType">
+                                    <option value="" disabled selected></option>
+                                    <option value="ungvien">Ứng viên</option>
+                                    <option value="nhatuyendung">Nhà tuyển dụng</option>
+                                    <option value="nhanvien">Nhân viên</option>
+                                </select>
+                                <span class="select-icon">
+                                    <i class="ti ti-chevron-down"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="username">Tên người dùng</label>
+                            <input type="text" class="form-input" id="username" />
+                            <span class="error-message">Lỗi! Vui lòng nhập lại.</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="password">Mật khẩu</label>
+                            <input type="password" class="form-input" id="password" />
+                            <span class="error-message">Lỗi! Vui lòng nhập lại.</span>
+                        </div>
+                        <button type="submit" class="submit-button">Tiếp tục</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+    <!-- Popup thông báo thành công -->
+    <div class="popup-overlay hidden" id="popupOverlay">
+        <div class="popup">
+            <div class="popup-message">Đăng ký tài khoản thành công!</div>
+            <button class="submit-button" id="continueBtn">Tiếp tục</button>
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('.registration-form');
+        const popup = document.getElementById('popupOverlay');
+        const continueBtn = document.getElementById('continueBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            let valid = true;
+            const username = document.getElementById('username');
+            const password = document.getElementById('password');
+            const accountType = document.getElementById('accountType');
+            const usernameError = username.nextElementSibling;
+            const passwordError = password.nextElementSibling;
+            const accountTypeError = accountType.closest('.form-group').querySelector('.error-message');
+
+            usernameError.style.display = 'none';
+            passwordError.style.display = 'none';
+            if(accountTypeError) accountTypeError.style.display = 'none';
+
+            if (!accountType.value) {
+                valid = false;
+                if(!accountTypeError) {
+                    const span = document.createElement('span');
+                    span.className = 'error-message';
+                    span.textContent = 'Vui lòng chọn loại tài khoản.';
+                    accountType.closest('.form-group').appendChild(span);
+                } else {
+                    accountTypeError.textContent = 'Vui lòng chọn loại tài khoản.';
+                    accountTypeError.style.display = 'block';
+                }
+            }
+            if (!username.value.trim() || username.value.length < 4) {
+                valid = false;
+                usernameError.textContent = 'Tên người dùng phải từ 4 ký tự.';
+                usernameError.style.display = 'block';
+            }
+            if (!password.value.trim() || password.value.length < 6) {
+                valid = false;
+                passwordError.textContent = 'Mật khẩu phải từ 6 ký tự.';
+                passwordError.style.display = 'block';
+            }
+            if (valid) {
+                popup.classList.remove('hidden');
+            }
+        });
+
+        continueBtn.addEventListener('click', function() {
+            window.location.href = "login.html";
+        });
+    });
+    </script>
+</body>
+</html>
